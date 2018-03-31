@@ -225,6 +225,11 @@
 			"type": "script",
 			"path": "script/slide.js",
 			"global": true
+		},
+		"snapshotLoader": {
+			"type": "script",
+			"path": "script/snapshotLoader.js",
+			"global": true
 		}
 	},
 	"environment": {
