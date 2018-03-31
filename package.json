@@ -6,9 +6,11 @@
     "build": "npm run clean && npm run build:scenario && npm run build:src && npm run scan:assets",
     "build:scenario": "cowlick-sexpr-compiler ./scenario/start.scm",
     "build:src": "tsc -p .",
-    "clean": "shx rm -rf ./script",
+    "clean": "shx rm -rf ./script && shx rm -rf ./tmp",
     "start": "akashic-sandbox .",
-    "scan:assets": "akashic scan asset"
+    "scan:assets": "akashic scan asset",
+    "bundle": "shx mkdir tmp && akashic export html -o ./tmp/dist -M -b",
+    "gh-pages": "gh-pages -d ./tmp/dist -m \"Update $(date +%Y-%m-%d:%H:%M:%s)\""
   },
   "dependencies": {
     "@cowlick/engine": "0.5.0"
@@ -19,6 +21,7 @@
     "@akashic/akashic-sandbox": "0.13.17",
     "@types/node": "9.4.7",
     "@cowlick/sexpr-compiler": "0.0.2",
+    "gh-pages": "1.1.0",
     "shx": "0.2.2",
     "typescript": "2.7.2"
   }
